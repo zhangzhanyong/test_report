@@ -31,12 +31,13 @@ class TestMountain(unittest.TestCase):
     # return suite
 
 def fun_suite():
-    suite = unittest.TestSuite()
-    loader = unittest.TestLoader()
-    suite.addTest(loader.loadTestsFromTestCase(TestMountain))
-    return suite
+    suite = unittest.TestSuite()#创建测试套
+    loader = unittest.TestLoader() #加载
+    suite.addTest(loader.loadTestsFromTestCase(TestMountain))#把用例加载到测试套
+    return suite #返回测试套
 
 if __name__ == "__main__":
+    #自定义报告
     fp = open('./test_result_%s.html'% time.strftime("%Y-%m-%d %H-%M-%S"),'wb')
     runner = HTMLTestRunner(stream=fp,
                             title="测试报告",
