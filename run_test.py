@@ -40,8 +40,8 @@ if __name__ == "__main__":
     #自定义报告
     fp = open('./test_result_%s.html'% time.strftime("%Y-%m-%d %H-%M-%S"),'wb')
     runner = HTMLTestRunner(stream=fp,
-                            title="测试报告",
-                            description="测试的执行情况：")
+                            title=u"测试报告",
+                            description=u"测试的执行情况：")
     runner.run(fun_suite())
     fp.close()
     # sys.exit(0)
