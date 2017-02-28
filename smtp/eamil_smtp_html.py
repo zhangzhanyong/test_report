@@ -24,8 +24,9 @@ def send_eamil():
     with open(test_res) as fp:
         data_html = fp.read()  # 把文本内容一次性读入内存
         msg = MIMEText(data_html,'utf-8','html')
-        msg["from"]=format_addr(u'发件人昵称 <%s>'% from_addr)
-        msg["to"]= to_addr(u'开发昵称<%s>' % to_addr)
+        msg["From"]=format_addr(u'发件人昵称 <%s>'% from_addr)
+        msg["To"]= format_addr(u'开发昵称 <%s>' % to_addr)
+        # msg['To'] = _format_addr(u'开发人员 <%s>' % to_addr)
         msg['Subject']=Header(u'自动化测试报告2017-02-22','utf-8').encode()
 
     server = smtplib.SMTP(smtp_driver)#通过smtp协议调用邮箱服务器
